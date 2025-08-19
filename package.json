@@ -1,0 +1,19 @@
+{
+  "name": "bucks2bar",
+  "version": "1.0.0",
+  "description": "A project to demonstrate a simple web application using Bootstrap.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step can be added here'",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.0"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.54.2"
+  }
+}

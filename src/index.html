@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bucks2Bar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
+    <!-- Optionally keep the old Bootstrap CDN for fallback or remove it if not needed -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Add this before your main.js script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Black Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2" href="#">Bucks2Bar</a>
+        </div>
+    </nav>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Bucks2Bar</h1>
+        <h2>The best platfrom to track your icome and expenses</H2>
+    </header>
+
+    <div class="container mt-3">
+        <!-- input element with id "username" -->
+        <input type="text" id="username" class="form-control" placeholder="Enter your username" />           
+        <h1>Welcome to Bucks2Bar</h1> 
+    </div>    
+    <!-- Bootstrap Tabs -->
+    <div class="container mt-4">
+        <ul class="nav nav-tabs" id="bucks2barTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#data" type="button"
+                    role="tab" aria-controls="data" aria-selected="true">
+                    Data
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart" type="button"
+                    role="tab" aria-controls="chart" aria-selected="false">
+                    Chart
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content p-3 border border-top-0 bg-white" id="bucks2barTabsContent">
+            <div class="tab-pane fade show active" id="data" role="tabpanel" aria-labelledby="data-tab">
+                <!-- Example Bootstrap row with 2 columns, responsive -->
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <!-- Column 1 content -->
+                        <label class="form-label fw-bold">January</label>
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="income-january-label">Income</span>
+                                    <input type="number" class="form-control" id="income-january" placeholder="Income"
+                                        aria-label="Income" aria-describedby="income-january-label" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="expenses-january-label">Expenses</span>
+                                    <input type="number" class="form-control" id="expenses-january"
+                                        placeholder="Expenses" aria-label="Expenses"
+                                        aria-describedby="expenses-january-label" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- March -->
+                        <label class="form-label fw-bold">March</label>
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="income-march-label">Income</span>
+                                    <input type="number" class="form-control" id="income-march" placeholder="Income"
+                                        aria-label="Income" aria-describedby="income-march-label" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="expenses-march-label">Expenses</span>
+                                    <input type="number" class="form-control" id="expenses-march" placeholder="Expenses"
+                                        aria-label="Expenses" aria-describedby="expenses-march-label" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- Column 2 content -->
+                        <label class="form-label fw-bold">February</label>
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="income-february-label">Income</span>
+                                    <input type="number" class="form-control" id="income-february" placeholder="Income"
+                                        aria-label="Income" aria-describedby="income-february-label" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="expenses-february-label">Expenses</span>
+                                    <input type="number" class="form-control" id="expenses-february"
+                                        placeholder="Expenses" aria-label="Expenses"
+                                        aria-describedby="expenses-february-label" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- April -->
+                        <label class="form-label fw-bold">April</label>
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="income-april-label">Income</span>
+                                    <input type="number" class="form-control" id="income-april" placeholder="Income"
+                                        aria-label="Income" aria-describedby="income-april-label" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="expenses-april-label">Expenses</span>
+                                    <input type="number" class="form-control" id="expenses-april" placeholder="Expenses"
+                                        aria-label="Expenses" aria-describedby="expenses-april-label" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="chart" role="tabpanel" aria-labelledby="chart-tab">
+                <canvas id="barChart" width="400" height="200"></canvas>
+                <!-- A plain Bootstrap button with the label "Download" -->
+                <div class="mb-3">
+                    <button class="btn btn-primary" id="download-btn">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 Bucks2Bar. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Optionally keep the old Bootstrap JS CDN for fallback or remove it if not needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

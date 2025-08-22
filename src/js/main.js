@@ -4,11 +4,22 @@
 const usernameInput = document.getElementById('username');
 const usernameRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-usernameInput?.addEventListener('input', ({ target }) => {
+// ...existing code...
+
+/**
+ * Handles input events for a username field, validating the input against a regex.
+ * Updates the input's border color and ARIA attribute based on validity.
+ *
+ * @param {Object} event - The input event object.
+ * @param {HTMLInputElement} event.target - The input element being validated.
+ */
+function usernameInputCallback({ target }) {
     const isValid = usernameRegex.test(target.value);
     target.style.border = isValid ? '2px solid green' : '2px solid red';
     target.setAttribute('aria-invalid', String(!isValid));
-});
+}
+
+usernameInput?.addEventListener('input', usernameInputCallback);
 
 let barChartInstance = null;
 
@@ -81,3 +92,37 @@ function updateBarChart() {
     barChartInstance.data.datasets[1].data = Object.values(data).map(m => m.expenses);
     barChartInstance.update();
 }
+
+// ...existing code...
+
+document.getElementById('send-email-btn')?.addEventListener('click', async () => {
+    const emailInput = document.getElementById('user-email');
+    const canvas = document.getElementById('barChart');
+    if (!emailInput || !canvas) return;
+
+    const email = emailInput.value.trim();
+    if (!email) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    const imageData = canvas.toDataURL('image/png');
+
+    try {
+        const response = await fetch('http://localhost:3000/send-chart', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, imageData })
+        });
+        const result = await response.json();
+        if (result.success) {
+            alert('Chart sent to your email!');
+        } else {
+            alert('Failed to send email: ' + (result.error || 'Unknown error'));
+        }
+    } catch (err) {
+        alert('Error sending email: ' + err.message);
+    }
+});
+
+// ...existing code...
